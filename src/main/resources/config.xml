@@ -1,0 +1,30 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Bean for ExpenseTracker -->
+    <bean
+            id="expenseTracker" class="org.example.ExpenseTracker" scope="singleton">
+        <property name="expenses" ref="expenses" />
+        <property name="scanner" ref="scanner" />
+    </bean>
+
+
+    <!-- Bean for Scanner (Prototype scope) -->
+    <bean
+            id="scanner" class="java.util.Scanner" scope="prototype">
+        <constructor-arg value="#{ T(java.lang.System).in }"/>
+    </bean>
+
+
+    <!-- Bean for Expenses (Singleton scope) -->
+    <bean
+            id="expenses" class="java.util.HashMap" scope="singleton">
+    </bean>
+
+
+
+
+
+</beans>
