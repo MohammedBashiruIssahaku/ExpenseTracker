@@ -37,6 +37,8 @@ public class ExpenseTracker
             System.out.println("4. Exit");
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
+
+            //use the scanner class to take input from the user
             scanner.nextLine();
 
             switch (choice) {
@@ -51,6 +53,7 @@ public class ExpenseTracker
                     break;
                 case 4:
                     System.out.println("Exiting Expense Tracker. Goodbye!");
+                    //close scanner to avoid data leak
                     scanner.close();
                     System.exit(0);
                 default:
